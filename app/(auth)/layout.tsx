@@ -9,7 +9,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
 			<Image
 				src={BgImg}
 				alt="netflix image"
-				className="hidden sm:flex sm:object-cover -z-10 brightness-50"
+				className="hidden md:flex md:object-cover -z-10 brightness-50"
 				fill
 				priority
 			/>
