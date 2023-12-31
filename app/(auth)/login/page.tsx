@@ -1,9 +1,8 @@
+import GithubSignInButton from "@/components/GithubSignInButton";
+import GoogleSignInButton from "@/components/GoogleSignInButton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { GithubIcon } from "lucide-react";
-import GoogleIcon from "../../../public/google.svg";
 
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -35,12 +34,8 @@ const Login = () => {
 				</Link>
 			</div>
 			<div className="flex w-full justify-center items-center gap-x-3 mt-6">
-				<Button variant={"outline"} size={"icon"}>
-					<GithubIcon />
-				</Button>
-				<Button variant={"outline"} size={"icon"}>
-					<Image src={GoogleIcon} alt="google icon" width={40} height={40} />
-				</Button>
+				<GithubSignInButton />
+				<GoogleSignInButton />
 			</div>
 		</div>
 	);
