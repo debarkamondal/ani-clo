@@ -7,3 +7,8 @@ export const getRecentAnime = async () => {
 	const { data } = await axios.get(url);
 	return data.results as Anime[];
 };
+export const getTopAiringAnime = async () => {
+	const url = `${apiUrl}/anime/gogoanime/top-airing`;
+	const { data } = await axios.get(url);
+	return data.results as Anime[];
+};

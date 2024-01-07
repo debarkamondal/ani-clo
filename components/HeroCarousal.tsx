@@ -14,26 +14,28 @@ import { MonitorPlay } from "lucide-react";
 import { Button } from "./ui/button";
 
 type propType = {
-	latestThree: Anime[];
+	topAnime: Anime[];
 };
-
 const HeroCarousal = (props: propType) => {
-	const { latestThree } = props;
+	const { topAnime } = props;
 	return (
-		<Carousel className="w-full" plugins={[Autoplay({ delay: 3000 })]}>
+		<Carousel className="w-full p-2" plugins={[Autoplay({ delay: 3000 })]}>
 			<CarouselContent>
-				{latestThree.map((anime) => {
+				{topAnime.map((anime) => {
 					return (
-						<CarouselItem className="flex gap-x-8" key={anime.id}>
+						<CarouselItem
+							className="flex gap-x-8 flex-col md:flex-row gap-y-3 text-center md:text-start"
+							key={anime.id}
+						>
 							<Image
 								src={anime.image}
 								alt={anime.title}
 								width={300}
 								height={400}
-								className="rounded-md"
+								className="rounded-md h-[34rem] w-96 self-center"
 							/>
-							<div className="w-7/12 flex flex-col justify-evenly">
-								<h1 className="text-4xl font-medium leading-normal">
+							<div className="md:w-7/12 flex flex-col justify-evenly items-center md:items-start gap-y-3">
+								<h1 className="text-4xl font-medium leading-normal line-clamp-3">
 									{anime.title}
 								</h1>
 								<Button className="w-48 text-base">
