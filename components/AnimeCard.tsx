@@ -11,7 +11,7 @@ const AnimeCard = (props: propType) => {
 		<div className="flex gap-x-5 overflow-x-scroll">
 			{latestAnime.map((anime) => {
 				return (
-					<div className="w-44 shrink-0">
+					<div className="w-44 shrink-0" key={anime.id}>
 						<Image
 							src={anime.image}
 							width={100}

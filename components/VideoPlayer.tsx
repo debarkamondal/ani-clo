@@ -7,6 +7,7 @@ const VideoPlayer = () => {
 	const [isClient, setIsClient] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const searchParams = useSearchParams();
+	console.log(searchParams.get("episode"));
 	useEffect(() => {
 		setIsClient(true);
 	}, []);
