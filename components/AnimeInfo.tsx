@@ -16,7 +16,7 @@ const AnimeInfo: React.FC<propType> = ({ animeInfo }) => {
 				alt={`${animeInfo.title.english}-image`}
 				width={300}
 				height={500}
-				className="w-full md:w-2/3"
+				className="w-full md:w-2/5"
 			/>
 			<div className="md:w-3/5 flex flex-col gap-y-8">
 				<h1 className="text-4xl font-bold text-center md:text-left mt-3 ">

@@ -5,11 +5,12 @@ import React from "react";
 
 const watch = async ({ params }: { params: { id: string } }) => {
 	const animeInfo = await getAnimeInfo(params.id);
+	console.log(Number("a"));
 	return (
-		<div className="px-8 ">
+		<>
 			<AnimeInfo animeInfo={animeInfo} />
 			<EpisodeList episodes={animeInfo.episodes} />
-		</div>
+		</>
 	);
 };
 
