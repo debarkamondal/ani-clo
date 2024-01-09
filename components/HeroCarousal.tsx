@@ -8,18 +8,18 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Anime } from "@/lib/types";
+import { animeListType } from "@/app/utils/types";
 import Image from "next/image";
 import { MonitorPlay } from "lucide-react";
 import { Button } from "./ui/button";
 
 type propType = {
-	topAnime: Anime[];
+	topAnime: animeListType[];
 };
 const HeroCarousal = (props: propType) => {
 	const { topAnime } = props;
 	return (
-		<Carousel className="w-full p-2" plugins={[Autoplay({ delay: 3000 })]}>
+		<Carousel className="w-full" plugins={[Autoplay({ delay: 3000 })]}>
 			<CarouselContent>
 				{topAnime.map((anime) => {
 					return (
@@ -29,14 +29,14 @@ const HeroCarousal = (props: propType) => {
 						>
 							<Image
 								src={anime.image}
-								alt={anime.title}
+								alt=""
 								width={300}
 								height={400}
 								className="rounded-md h-[34rem] w-96 self-center"
 							/>
 							<div className="md:w-7/12 flex flex-col justify-evenly items-center md:items-start gap-y-3">
-								<h1 className="text-4xl font-medium leading-normal line-clamp-3">
-									{anime.title}
+								<h1 className="text-2xl md:text-4xl font-medium leading-normal line-clamp-3">
+									{anime.title.romaji}
 								</h1>
 								<Button className="w-48 text-base">
 									Watch Now <MonitorPlay className="mx-3" />
@@ -46,8 +46,8 @@ const HeroCarousal = (props: propType) => {
 					);
 				})}
 			</CarouselContent>
-			<CarouselPrevious />
-			<CarouselNext />
+			<CarouselPrevious className="flex mx-14 md:mx-8 lg:mx-2 items-center justify-center bg-primary text-black" />
+			<CarouselNext className="flex mx-14 md:mx-8 lg:mx-2 items-center justify-center bg-primary text-black" />
 		</Carousel>
 	);
 };

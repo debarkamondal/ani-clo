@@ -5,7 +5,13 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
-				hostname: "gogocdn.net",
+				hostname: "artworks.thetvdb.com",
+			},
+			{
+				hostname: "media.kitsu.io",
+			},
+			{
+				hostname: "s4.anilist.co",
 			},
 		],
 	},

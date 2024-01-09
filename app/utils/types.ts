@@ -1,10 +1,14 @@
-export type Anime = {
+export type animeListType = {
 	id: string;
-	episodeId: string;
-	episodeNumber: Number;
-	title: string;
+	title: {
+		romaji: string;
+		english: string;
+		native: string;
+	};
 	image: string;
-	url: string;
+	type: string;
+	rating: number;
+	releaseDate: string;
 };
 
 export type AnimeInfo = {

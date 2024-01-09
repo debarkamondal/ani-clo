@@ -15,7 +15,7 @@ import Link from "next/link";
 
 const UserNav = () => {
 	const { data: session } = useSession();
-	return !session?.user ? (
+	return !session?.user?.image ? (
 		<Link href={"/login"}>
 			<Button>Log in</Button>
 		</Link>
@@ -24,7 +24,7 @@ const UserNav = () => {
 			<DropdownMenuTrigger asChild>
 				<Button variant="ghost" className="relative h-10 w-10 rounded-sm">
 					<Avatar className="h-10 w-10 rounded-sm">
-						<AvatarImage src={session?.user?.image} />
+						<AvatarImage src={session?.user?.image} alt="profile picutre" />
 						<AvatarFallback className="rounded-sm">Jan</AvatarFallback>
 					</Avatar>
 				</Button>

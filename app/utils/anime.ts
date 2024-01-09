@@ -1,16 +1,16 @@
-import { Anime, AnimeInfo } from "@/lib/types";
+import { animeListType, AnimeInfo } from "@/app/utils/types";
 import axios from "axios";
 
 const apiUrl = process.env.ANIME_API_URL as string;
-export const getRecentAnime = async () => {
-	const url = `${apiUrl}/anime/gogoanime/recent-episodes`;
+export const getRecentAnime = async (page: number) => {
+	const url = `${apiUrl}/meta/anilist/recent-episodes?page=${page}`;
 	const { data } = await axios.get(url);
-	return data.results as Anime[];
+	return data.results as animeListType[];
 };
-export const getTopAiringAnime = async () => {
-	const url = `${apiUrl}/anime/gogoanime/top-airing`;
+export const getTopAiringAnime = async (page: number) => {
+	const url = `${apiUrl}/meta/anilist/trending?page=${page}`;
 	const { data } = await axios.get(url);
-	return data.results as Anime[];
+	return data.results as animeListType[];
 };
 
 export const getAnimeInfo = async (id: string) => {

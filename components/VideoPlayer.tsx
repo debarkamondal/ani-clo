@@ -1,15 +1,20 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player/lazy";
 
 const VideoPlayer = () => {
 	const [isClient, setIsClient] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(false);
+	const pathname = usePathname();
+	const { replace } = useRouter();
 	const searchParams = useSearchParams();
-	console.log(searchParams.get("episode"));
+
 	useEffect(() => {
+		const params = new URLSearchParams(searchParams);
 		setIsClient(true);
+		params.set("episode", "1");
+		replace(`${pathname}?${params.toString()}`);
 	}, []);
 
 	const handleKeyPress = (e: React.KeyboardEvent) => {
