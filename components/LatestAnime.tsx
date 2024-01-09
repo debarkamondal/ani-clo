@@ -8,10 +8,10 @@ type propType = {
 const LatestAnime = (props: propType) => {
 	let { latestAnime } = props;
 	return (
-		<div className="md:flex md:gap-x-5 gap-y-4 grid grid-cols-2 justify-items-center overflow-x-scroll">
+		<div className="md:flex md:gap-x-5 p-2 md:p-0 gap-y-4 grid grid-cols-2 justify-items-center overflow-x-scroll">
 			{latestAnime.map((anime) => {
 				return (
-					<div className="w-48 md:w-44 shrink-0" key={anime.id}>
+					<div className="w-full p-2 md:w-44 shrink-0" key={anime.id}>
 						<Image
 							src={anime.image}
 							width={100}

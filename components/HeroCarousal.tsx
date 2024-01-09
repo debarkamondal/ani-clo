@@ -46,8 +46,8 @@ const HeroCarousal = (props: propType) => {
 					);
 				})}
 			</CarouselContent>
-			<CarouselPrevious className="flex mx-14 md:mx-8 lg:mx-2 items-center justify-center bg-primary text-black" />
-			<CarouselNext className="flex mx-14 md:mx-8 lg:mx-2 items-center justify-center bg-primary text-black" />
+			<CarouselPrevious className="flex mx-14 md:mx-8 lg:mx-2 items-center justify-center bg-primary text-black opacity-70" />
+			<CarouselNext className="flex mx-14 md:mx-8 lg:mx-2 items-center justify-center bg-primary text-black opacity-70" />
 		</Carousel>
 	);
 };
