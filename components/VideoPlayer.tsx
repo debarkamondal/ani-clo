@@ -29,7 +29,7 @@ const VideoPlayer = () => {
 		<div onKeyDown={handleKeyPress} className="flex justify-center">
 			{isClient && (
 				<ReactPlayer
-					url="https://www081.vipanicdn.net/streamhls/0789fd4f049c3ca2a49b860ea5d1f456/ep.1.1703882952.1080.m3u8"
+					url="https://www094.vipanicdn.net/streamhls/03d55c63f2e61b800619b80a028fcc8a/ep.1.1704736725.1080.m3u8"
 					controls
 					playing={isPlaying}
 					height={540}

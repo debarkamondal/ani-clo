@@ -5,7 +5,6 @@ import { authOptions } from "./utils/auth";
 
 export default async function Home() {
 	const session = await getServerSession(authOptions);
-	console.log(session);
 	return (
 		<div>
 			<Button>This is a Button</Button>
