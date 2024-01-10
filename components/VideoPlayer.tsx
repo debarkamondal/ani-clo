@@ -23,7 +23,6 @@ const VideoPlayer: React.FC<propsType> = ({ sources }) => {
 	};
 
 	const streamUrl = sources.filter((source) => source.quality === "1080p")[0];
-	console.log(streamUrl);
 	return (
 		<div onKeyDown={handleKeyPress} className="flex justify-center">
 			{isClient && (
