@@ -33,7 +33,10 @@ const SearchBar = () => {
 				/>
 			)}
 			{isClicked && (
-				<div className="md:contents absolute left-0 top-0 flex justify-center items-center bg-background/85 w-screen h-screen backdrop-blur z-10">
+				<div
+					className="md:contents absolute left-0 top-0 flex justify-center items-center bg-background/85 w-screen h-screen backdrop-blur z-10"
+					onClick={() => setIsClicked(false)}
+				>
 					<div className="absolute md:static flex gap-x-2 bg-muted p-2 rounded-md ">
 						<input
 							type="text"
