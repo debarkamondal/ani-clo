@@ -14,7 +14,6 @@ import Link from "next/link";
 
 const UserNav = () => {
 	const { data: session } = useSession();
-	console.log(session?.user?.name);
 	return !session?.user?.image ? (
 		<Link href={"/login"}>
 			<Button>Log in</Button>

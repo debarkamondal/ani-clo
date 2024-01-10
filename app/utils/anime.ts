@@ -27,3 +27,9 @@ export const getEpisodeSources = async (episodeId: string) => {
 	const { data } = await axios.get(url.toString());
 	return data.sources as episodeSourceType[];
 };
+
+export const searchAnime = async (searchParam: string) => {
+	const url = new URL(`/meta/anilist/${searchParam}`, apiUrl);
+	const { data } = await axios.get(url.toString());
+	return data.results as animeListType[];
+};

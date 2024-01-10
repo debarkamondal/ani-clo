@@ -4,6 +4,7 @@ export type animeListType = {
 		romaji: string;
 		english: string;
 		native: string;
+		userPreferred?: string;
 	};
 	image: string;
 	type: string;
