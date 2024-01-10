@@ -1,15 +1,30 @@
-import { getAnimeInfo } from "@/app/utils/anime";
+import { getAnimeInfo, getEpisodeSources } from "@/app/utils/anime";
 import AnimeInfo from "@/components/AnimeInfo";
 import EpisodeList from "@/components/EpisodeList";
+import VideoPlayer from "@/components/VideoPlayer";
 import React from "react";
 
-const watch = async ({ params }: { params: { id: string } }) => {
+const watch = async ({
+	params,
+	searchParams,
+}: {
+	params: { id: string };
+	searchParams: { [key: string]: string | string[] | undefined };
+}) => {
 	const animeInfo = await getAnimeInfo(params.id);
-	console.log(Number("a"));
+	let episodeSources;
+	if (searchParams.episodeId) {
+		episodeSources = await getEpisodeSources(searchParams.episodeId as string);
+	}
 	return (
 		<>
-			<AnimeInfo animeInfo={animeInfo} />
-			<EpisodeList episodes={animeInfo.episodes} />
+			{!searchParams.episodeId && <AnimeInfo animeInfo={animeInfo} />}
+			{episodeSources && <VideoPlayer sources={episodeSources} />}
+			<h1 className="text-3xl font-bold my-4">{animeInfo.title.english}</h1>
+			<EpisodeList
+				episodes={animeInfo.episodes}
+				currentEpisode={searchParams.episodeId as string}
+			/>
 		</>
 	);
 };

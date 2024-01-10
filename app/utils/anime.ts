@@ -1,4 +1,8 @@
-import { animeListType, animeInfoType } from "@/app/utils/types";
+import {
+	animeListType,
+	animeInfoType,
+	episodeSourceType,
+} from "@/app/utils/types";
 import axios from "axios";
 
 const apiUrl = process.env.ANIME_API_URL as string;
@@ -17,4 +21,9 @@ export const getAnimeInfo = async (id: string) => {
 	const url = new URL(`/meta/anilist/info/${id}`, apiUrl);
 	const { data } = await axios.get(url.toString());
 	return data as animeInfoType;
+};
+export const getEpisodeSources = async (episodeId: string) => {
+	const url = new URL(`/meta/anilist/watch/${episodeId}`, apiUrl);
+	const { data } = await axios.get(url.toString());
+	return data.sources as episodeSourceType[];
 };

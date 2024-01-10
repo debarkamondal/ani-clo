@@ -1,8 +1,11 @@
 import { episodeInfoType } from "@/app/utils/types";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 import React from "react";
 
 interface propType {
 	episodes: episodeInfoType[];
+	currentEpisode?: string;
 }
 const EpisodeList: React.FC<propType> = (props) => {
 	return (
@@ -13,12 +16,18 @@ const EpisodeList: React.FC<propType> = (props) => {
 			<div className="grid grid-cols-3 gap-2">
 				{props.episodes.map((episode, index) => {
 					return (
-						<span
+						<Link
+							href={`?${new URLSearchParams({ episodeId: episode.id })}`}
 							key={episode.id}
-							className="border-2 p-2 rounded-md text-center border-border"
+							className={cn(
+								"border-2 p-2 rounded-md text-center",
+								props.currentEpisode === episode.id
+									? "border-primary"
+									: "border-border"
+							)}
 						>
 							Episode {episode.number}
-						</span>
+						</Link>
 					);
 				})}
 			</div>

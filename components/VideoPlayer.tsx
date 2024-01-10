@@ -1,20 +1,17 @@
 "use client";
+import { episodeSourceType } from "@/app/utils/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player/lazy";
 
-const VideoPlayer = () => {
+type propsType = { sources: episodeSourceType[] };
+const VideoPlayer: React.FC<propsType> = ({ sources }) => {
 	const [isClient, setIsClient] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(false);
-	const pathname = usePathname();
-	const { replace } = useRouter();
-	const searchParams = useSearchParams();
 
 	useEffect(() => {
-		const params = new URLSearchParams(searchParams);
 		setIsClient(true);
-		params.set("episode", "1");
-		replace(`${pathname}?${params.toString()}`);
+		return () => setIsClient(false);
 	}, []);
 
 	const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -25,11 +22,13 @@ const VideoPlayer = () => {
 		}
 	};
 
+	const streamUrl = sources.filter((source) => source.quality === "1080p")[0];
+	console.log(streamUrl);
 	return (
 		<div onKeyDown={handleKeyPress} className="flex justify-center">
 			{isClient && (
 				<ReactPlayer
-					url="https://www094.vipanicdn.net/streamhls/03d55c63f2e61b800619b80a028fcc8a/ep.1.1704736725.1080.m3u8"
+					url={streamUrl.url}
 					controls
 					playing={isPlaying}
 					height={540}

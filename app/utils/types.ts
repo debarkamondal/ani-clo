@@ -11,6 +11,12 @@ export type animeListType = {
 	releaseDate: string;
 };
 
+export type episodeSourceType = {
+	url: string;
+	isM3U8: boolean;
+	quality: string;
+};
+
 export type animeInfoType = {
 	id: string;
 	title: {

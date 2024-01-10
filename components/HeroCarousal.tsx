@@ -12,6 +12,7 @@ import { animeListType } from "@/app/utils/types";
 import Image from "next/image";
 import { MonitorPlay } from "lucide-react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 type propType = {
 	topAnime: animeListType[];
@@ -38,9 +39,11 @@ const HeroCarousal = (props: propType) => {
 								<h1 className="text-2xl md:text-4xl font-medium leading-normal line-clamp-3">
 									{anime.title.romaji}
 								</h1>
-								<Button className="w-48 text-base">
-									Watch Now <MonitorPlay className="mx-3" />
-								</Button>
+								<Link href={`/watch/${anime.id}`} className="w-48 text-base">
+									<Button variant="default">
+										Watch Now <MonitorPlay className="mx-3" />
+									</Button>
+								</Link>
 							</div>
 						</CarouselItem>
 					);
