@@ -20,7 +20,7 @@ const watch = async ({
 		<>
 			{!searchParams.episodeId && <AnimeInfo animeInfo={animeInfo} />}
 			{episodeSources && <VideoPlayer sources={episodeSources} />}
-			<h1 className="text-3xl font-bold my-4">{animeInfo.title.english}</h1>
+			<h1 className="text-3xl font-bold m-4">{animeInfo.title.english}</h1>
 			<EpisodeList
 				episodes={animeInfo.episodes}
 				currentEpisode={searchParams.episodeId as string}

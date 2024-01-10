@@ -9,12 +9,12 @@ import {
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
-import { authOptions } from "@/app/utils/auth";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 const UserNav = () => {
 	const { data: session } = useSession();
+	console.log(session?.user?.name);
 	return !session?.user?.image ? (
 		<Link href={"/login"}>
 			<Button>Log in</Button>
@@ -25,7 +25,9 @@ const UserNav = () => {
 				<Button variant="ghost" className="relative h-10 w-10 rounded-sm">
 					<Avatar className="h-10 w-10 rounded-sm">
 						<AvatarImage src={session?.user?.image} alt="profile picutre" />
-						<AvatarFallback className="rounded-sm">Jan</AvatarFallback>
+						<AvatarFallback className="rounded-sm">
+							{session.user.name?.charAt(0)}
+						</AvatarFallback>
 					</Avatar>
 				</Button>
 			</DropdownMenuTrigger>
