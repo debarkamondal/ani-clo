@@ -9,12 +9,12 @@ const SearchBar = () => {
 	);
 	const [isClicked, setIsClicked] = useState(false);
 	const router = useRouter();
-	const handleClick = () => router.push(`/search/${searchParam}`);
+	const handleSearch = () => router.push(`/search/${searchParam}`);
 
 	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
 		switch (e.code) {
 			case "Enter":
-				handleClick();
+				handleSearch();
 				setIsClicked(false);
 				break;
 			case "Escape":
@@ -33,8 +33,16 @@ const SearchBar = () => {
 				/>
 			)}
 			{isClicked && (
-				<div className="md:contents absolute left-0 top-0 flex justify-center items-center bg-background/85 w-screen h-screen backdrop-blur z-10">
-					<div className="absolute md:static flex gap-x-2 bg-muted p-2 rounded-md ">
+				<div
+					className="md:contents fixed left-0 top-0 flex justify-center items-center bg-background/85 w-screen h-screen backdrop-blur z-10"
+					onClick={(e) => {
+						setIsClicked(false);
+					}}
+				>
+					<div
+						className="absolute md:static flex gap-x-2 bg-muted p-2 rounded-md "
+						onClick={(e) => e.stopPropagation()}
+					>
 						<input
 							type="text"
 							placeholder="Search"
@@ -45,7 +53,7 @@ const SearchBar = () => {
 						/>
 						<Search
 							className="w-5 h-5 text-gray-300 cursor-pointer"
-							onClick={handleClick}
+							onClick={handleSearch}
 						/>
 					</div>
 				</div>
