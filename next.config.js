@@ -13,6 +13,9 @@ const nextConfig = {
 			{
 				hostname: "s4.anilist.co",
 			},
+			{
+				hostname: "gogocdn.net",
+			},
 		],
 	},
 };

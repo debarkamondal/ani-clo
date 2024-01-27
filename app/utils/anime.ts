@@ -6,8 +6,8 @@ import {
 import axios from "axios";
 
 const apiUrl = process.env.ANIME_API_URL as string;
-export const getRecentAnime = async (page: number) => {
-	const url = `${apiUrl}/meta/anilist/recent-episodes?page=${page}`;
+export const getPopularAnime = async (page: number) => {
+	const url = `${apiUrl}/meta/anilist/popular?page=${page}`;
 	const { data } = await axios.get(url);
 	return data.results as animeListType[];
 };
