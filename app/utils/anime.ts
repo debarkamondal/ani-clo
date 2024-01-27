@@ -12,13 +12,13 @@ export const getPopularAnime = async (page: number) => {
 	return data.results as animeListType[];
 };
 export const getTopAiringAnime = async (page: number) => {
-	const url = `${apiUrl}/meta/anilist/trending?page=${page}`;
+	const url = `${apiUrl}/anime/gogoanime/top-airing?page=${page}`;
 	const { data } = await axios.get(url);
 	return data.results as animeListType[];
 };
 
 export const getAnimeInfo = async (id: string) => {
-	const url = new URL(`/meta/anilist/info/${id}`, apiUrl);
+	const url = new URL(`/anime/gogoanime/info/${id}`, apiUrl);
 	const { data } = await axios.get(url.toString());
 	return data as animeInfoType;
 };

@@ -1,15 +1,9 @@
 export type animeListType = {
 	id: string;
-	title: {
-		romaji: string;
-		english: string;
-		native: string;
-		userPreferred?: string;
-	};
+	title: string;
 	image: string;
-	type: string;
-	rating: number;
-	releaseDate: string;
+	url: string;
+	genres: string[];
 };
 
 export type episodeSourceType = {

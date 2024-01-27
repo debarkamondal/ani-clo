@@ -37,7 +37,7 @@ const HeroCarousal = (props: propType) => {
 							/>
 							<div className="md:w-7/12 flex flex-col justify-evenly items-center md:items-start gap-y-3">
 								<h1 className="text-2xl md:text-4xl font-medium leading-normal line-clamp-3">
-									{anime.title.romaji}
+									{anime.title}
 								</h1>
 								<Link href={`/watch/${anime.id}`} className="w-48 text-base">
 									<Button variant="default">
