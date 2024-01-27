@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Logo from "../public/netflix_logo.svg";
+import Logo from "../public/ani-clo_logo.png";
 import { usePathname } from "next/navigation";
 import { Bell } from "lucide-react";
 import UserNav from "./UserNav";
