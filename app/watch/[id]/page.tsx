@@ -12,7 +12,6 @@ const watch = async ({
 	searchParams: { [key: string]: string | string[] | undefined };
 }) => {
 	const animeInfo = await getAnimeInfo(params.id);
-	console.log(animeInfo);
 	let episodeSources;
 	if (searchParams.episodeId) {
 		episodeSources = await getEpisodeSources(searchParams.episodeId as string);

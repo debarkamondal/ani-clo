@@ -30,6 +30,6 @@ export type animeInfoType = {
 
 export type episodeInfoType = {
 	id: string;
-	episode: number;
+	number: number;
 	url: string;
 };
