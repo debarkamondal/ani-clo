@@ -11,12 +11,12 @@ const AnimeCard = ({ anime }: { anime: animeListType }) => {
 					src={anime.image}
 					width={100}
 					height={200}
-					alt={anime.title.romaji}
+					alt={anime.title}
 					className="rounded-md sm:h-64 md:h-56 w-full object-cover"
 				/>
 			</Link>
 			<p className=" my-1 text-sm line-clamp-2 md:line-clamp-1 text-center">
-				{anime.title.romaji}
+				{anime.title}
 			</p>
 		</div>
 	);
