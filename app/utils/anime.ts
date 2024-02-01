@@ -6,8 +6,8 @@ import {
 import axios from "axios";
 
 const apiUrl = process.env.ANIME_API_URL as string;
-export const getPopularAnime = async (page: number) => {
-	const url = `${apiUrl}/meta/anilist/popular?page=${page}`;
+export const getRecentAnime = async (page: number) => {
+	const url = `${apiUrl}/anime/gogoanime/recent-episodes?page=${page}`;
 	const { data } = await axios.get(url);
 	return data.results as animeListType[];
 };
@@ -28,8 +28,8 @@ export const getEpisodeSources = async (episodeId: string) => {
 	return data.sources as episodeSourceType[];
 };
 
-export const searchAnime = async (searchParam: string) => {
-	const url = new URL(`/meta/anilist/${searchParam}`, apiUrl);
+export const searchAnime = async (searchParam: string, page = 1) => {
+	const url = new URL(`/anime/gogoanime/${searchParam}?page=${page}`, apiUrl);
 	const { data } = await axios.get(url.toString());
 	return data.results as animeListType[];
 };

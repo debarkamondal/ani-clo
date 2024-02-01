@@ -11,9 +11,7 @@ const searchPage = async ({ params }: { params: { id: string } }) => {
 			</h1>
 			<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-2 items-stretch">
 				{result.map((anime) => {
-					return (
-						anime.title.romaji && <AnimeCard anime={anime} key={anime.id} />
-					);
+					return anime.title && <AnimeCard anime={anime} key={anime.id} />;
 				})}
 			</div>
 		</div>
